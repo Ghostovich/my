@@ -1,8 +1,9 @@
 import React from 'react'; 
+import s from "./Profile.module.css";
 
 const Profile = () => {
   return (
-    <div className='content'>
+    <div className={s.content}>
 
     <div>
       <img alt="r" src="https://imgv3.fotor.com/images/side/sideimage-one-tap-enhance.jpg" />
