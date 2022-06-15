@@ -12,7 +12,7 @@ const MyPosts = () => {
         <textarea></textarea>
         <button>Add Post</button>
       </div>
-<Post/>
+<Post Like="2" Message="Come on!"/>
 
 
 
