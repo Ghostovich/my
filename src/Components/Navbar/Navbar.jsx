@@ -5,23 +5,23 @@ const Navbar = () => {
   return (
     <nav className={s.nav}>
       <div>
-        <a className={s.item} href="/#">Profile</a>
+        <a className={s.item} href="/Profile">Profile</a>
       </div>
 
       <div >
-        <a className={s.item} href="/#">Messages</a>
+        <a className={s.item} href="/Dialogs">Messages</a>
       </div>
 
       <div >
-        <a className={`${s.item} ${s.active}`} href="/#">News</a>
+        <a className={`${s.item} ${s.active}`} href="/News">News</a>
       </div>
 
       <div className={s.item}>
-        <a href="/#">Music</a>
+        <a href="/Music">Music</a>
       </div>
 
       <div>
-        <a href="/#">Settings</a>
+        <a href="/Settings">Settings</a>
       </div>
     </nav>
   );
