@@ -1,23 +1,17 @@
-import React from 'react'; 
+import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 /*import s from './Profile.module.css';*/
 
 const Profile = () => {
-  return (
-    <div>
+    return (
+        <div>
+            <ProfileInfo/>
 
-    <div>
-      <img alt="r" src="https://imgv3.fotor.com/images/side/sideimage-one-tap-enhance.jpg" />
-    </div>
+            <MyPosts/>
 
-    <div>
-      ava+discription
-    </div>
-
-    <MyPosts />
-
-  </div>
-);
+        </div>
+    );
 }
 
 export default Profile;
