@@ -40,23 +40,21 @@ const Dialogs = () => {
 
     ];
 
+    let dialogElement = DItem.map (d=><Dialog name={d.name} id={d.id}/>);
+
+    let messageElement = Mess.map (m=> <Message message={m.mess}/> )
 
     return (
         <div className={s.dialogs}>
 
             <div className={s.dialogsItems}>
-                <Dialog name={DItem[0].name} id={DItem[0].id}/>
-                <Dialog name={DItem[1].name} id={DItem[1].id}/>
-                <Dialog name={DItem[2].name} id={DItem[2].id}/>
-                <Dialog name={DItem[3].name} id={DItem[3].id}/>
+                {dialogElement}
 
             </div>
 
             <div className={s.messages}>
 
-                <Message message={Mess[0].mess}/>
-                <Message message={Mess[1].mess}/>
-                <Message message={Mess[2].mess}/>
+                {messageElement}
 
             </div>
         </div>

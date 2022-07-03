@@ -9,6 +9,8 @@ const MyPosts = () => {
         {id:2, message: "Eee", Like: 4}
     ]
 
+    let postElements = Posts.map (p=><Post Like={p.Like} Message={p.message}/>)
+
   return (
     <div className={s.item}>
       <div>
@@ -26,12 +28,10 @@ const MyPosts = () => {
       </div>
 
         <div className={s.post}>
-            <Post Like={Posts[0].Like} Message={Posts[0].message}/>
+            {postElements}
         </div>
 
-        <div className={s.post}>
-            <Post Like={Posts[1].Like} Message={Posts[1].message}/>
-        </div>
+
 
 
     </div>
