@@ -13,6 +13,8 @@ const Post = (Props) => {
         {Props.Like} like
       </div>
 
+
+
     </div>
   );
 }
