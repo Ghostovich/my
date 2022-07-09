@@ -3,29 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-let DItem = [
-    {id: 1, name: "Phil"},
-    {id: 2, name: "Anton"},
-    {id: 3, name: "Petya"},
-    {id: 4, name: "Vasya"}
-];
-
-let Mess = [
-    {id: 1, mess: "Hi"},
-    {id: 2, mess: "Men"},
-    {id: 3, mess: "What`s up"}
-];
-
-let Posts = [
-    {id:1, message: "Come on!", Like:2},
-    {id:2, message: "Eee", Like: 4}
-]
+import state from './redux/state'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App DItem={DItem} Mess={Mess} Posts={Posts}/>
+    <App state={state}/>
   </React.StrictMode>
 );
 

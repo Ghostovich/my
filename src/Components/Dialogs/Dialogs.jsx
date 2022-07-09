@@ -7,9 +7,9 @@ const Dialogs = (props) => {
 
 
 
-    let dialogElement = props.DItem.map (d=><Dialog name={d.name} id={d.id}/>);
+    let dialogElement = props.state.DItem.map (d=><Dialog name={d.name} id={d.id}/>);
 
-    let messageElement = props.Mess.map (m=> <Message message={m.mess}/> )
+    let messageElement = props.state.Mess.map (m=> <Message message={m.mess}/> )
 
     return (
         <div className={s.dialogs}>
