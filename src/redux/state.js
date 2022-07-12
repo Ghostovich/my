@@ -1,3 +1,6 @@
+import {rerender} from "../render";
+
+
 let state =
     {
         ProfilePage: {
@@ -32,14 +35,17 @@ let state =
     }
 
 export let addPost = (postMess) => {
-        let newPost = {
-            id:5,
-            message: postMess,
-            Like: 0
-        };
+    let newPost = {
+        id: 5,
+        message: postMess,
+        Like: 0
+    };
 
-        state.ProfilePage.Posts.push (newPost);
-    }
+    state.ProfilePage.Posts.push(newPost);
+
+    rerender(state);
+
+}
 
 
 export default state
