@@ -7,7 +7,8 @@ let state =
             Posts: [
                 {id: 1, message: "Come on!", Like: 2},
                 {id: 2, message: "Eee", Like: 4}
-            ]
+            ],
+            newPostText: ''
         },
 
 
@@ -34,18 +35,31 @@ let state =
         }
     }
 
-export let addPost = (postMess) => {
+    window.state = state;
+
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: postMess,
+        message: state.ProfilePage.newPostText,
         Like: 0
     };
 
     state.ProfilePage.Posts.push(newPost);
 
     rerender(state);
+    state.ProfilePage.newPostText = ''
 
-}
+};
+
+
+
+export let updateNewPostText = (newText) => {
+    state.ProfilePage.newPostText = newText
+
+
+    rerender(state);
+
+};
 
 
 export default state
