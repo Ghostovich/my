@@ -1,9 +1,28 @@
-import reportWebVitals from './reportWebVitals';
 import './index.css';
-import state from './redux/state'
-import {rerender} from "./render";
+import state, {subscribe} from './redux/state'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import {addPost, updateNewPostText} from "./redux/state";
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+let rerender = (state)=> {
+
+    root.render(
+        <React.StrictMode>
+            <App state={state}
+                 addPost={addPost}
+                 updateNewPostText={updateNewPostText}/>
+        </React.StrictMode>
+    );
+}
 
 rerender(state);
+
+subscribe(rerender);
 
 
 reportWebVitals();
