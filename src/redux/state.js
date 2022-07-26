@@ -65,37 +65,34 @@ let store = {
         }
         else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.ProfilePage.newPostText = action.newText
-            this._rerender(this._state)}
-
-
-        else
-            if (action.type === ADD_NEW_TEXT_MESS) {
-                let newMess = {
-                    id: 4, mess: this._state.DialogsPage.newMessText,
-                }
-                this._state.DialogsPage.Mess.push(newMess)
-                this._rerender(this._state);
-                this._state.DialogsPage.newMessText = ''
-
-
-            } else if (action.type === UPDATE_NEW_TEXT_MESS) {
-                this._state.DialogsPage.newMessText = action.newText
-                this._rerender(this._state);
-
+            this._rerender(this._state)
+        }
+        else if (action.type === ADD_NEW_TEXT_MESS) {
+            let newMess = {
+                id: 4, mess: this._state.DialogsPage.newMessText,
             }
+            this._state.DialogsPage.Mess.push(newMess)
+            this._rerender(this._state);
+            this._state.DialogsPage.newMessText = ''
 
 
         }
+        else if (action.type === UPDATE_NEW_TEXT_MESS) {
+            this._state.DialogsPage.newMessText = action.newText
+            this._rerender(this._state);
 
+        }
     }
 
-    export const addPostActionCreator = () => ({type: ADD_POST})
+}
 
-    export const updateNewPostTextAC = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addPostActionCreator = () => ({type: ADD_POST})
 
-    export const addMessTextAC = () => ({type: ADD_NEW_TEXT_MESS})
+export const updateNewPostTextAC = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
-    export const updateNewMessTextAC = (text) => ({type: UPDATE_NEW_TEXT_MESS, newText: text})
+export const addMessTextAC = () => ({type: ADD_NEW_TEXT_MESS})
 
-    window.store = store;
-    export default store
+export const updateNewMessTextAC = (text) => ({type: UPDATE_NEW_TEXT_MESS, newText: text})
+
+window.store = store;
+export default store
