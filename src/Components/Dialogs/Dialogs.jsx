@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css"
 import Dialog from "./Dialog/Dialog";
 import Message from "./Messages/Message";
+import {addMessTextAC, updateNewMessTextAC,} from "../../redux/state";
 
 const Dialogs = (props) => {
 
@@ -13,9 +14,16 @@ const Dialogs = (props) => {
     let newMessElement = React.createRef();
 
     let addMess = () => {
-        let text = newMessElement.current.value
-        alert(text);
+        props.dispatch(addMessTextAC())
     }
+
+
+    let ChangeText = () => {
+        let text = newMessElement.current.value;
+        let action=updateNewMessTextAC(text)
+        props.dispatch(action)
+    }
+
 
     return (
         <div className={s.dialogs}>
@@ -30,7 +38,7 @@ const Dialogs = (props) => {
                 {messageElement}
 
                 <div>
-                    <textarea ref={newMessElement}></textarea>
+                    <textarea onChange={ChangeText} ref={newMessElement}></textarea>
                 </div>
 
                 <div>

@@ -1,7 +1,10 @@
-
 let ADD_POST = 'ADD-POST'
 
 let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+
+let ADD_NEW_TEXT_MESS = 'ADD-NEW-TEXT-MESS'
+let UPDATE_NEW_TEXT_MESS = 'UPDATE-NEW-TEXT-MESS'
+
 
 let store = {
 
@@ -24,8 +27,9 @@ let store = {
             Mess: [
                 {id: 1, mess: "Hi"},
                 {id: 2, mess: "Men"},
-                {id: 3, mess: "What`s up"}
-            ]
+                {id: 3, mess: "What`s up"},
+            ],
+            newMessText: ''
         },
 
         Navbar: {
@@ -55,25 +59,43 @@ let store = {
                 message: this._state.ProfilePage.newPostText,
                 Like: 0
             }
-
             this._state.ProfilePage.Posts.push(newPost)
-
             this._rerender(this._state);
             this._state.ProfilePage.newPostText = ''
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+        }
+        else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.ProfilePage.newPostText = action.newText
-            this._rerender(this._state);
+            this._rerender(this._state)}
+
+
+        else
+            if (action.type === ADD_NEW_TEXT_MESS) {
+                let newMess = {
+                    id: 4, mess: this._state.DialogsPage.newMessText,
+                }
+                this._state.DialogsPage.Mess.push(newMess)
+                this._rerender(this._state);
+                this._state.DialogsPage.newMessText = ''
+
+
+            } else if (action.type === UPDATE_NEW_TEXT_MESS) {
+                this._state.DialogsPage.newMessText = action.newText
+                this._rerender(this._state);
+
+            }
+
 
         }
 
-
     }
 
-}
+    export const addPostActionCreator = () => ({type: ADD_POST})
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+    export const updateNewPostTextAC = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
-export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+    export const addMessTextAC = () => ({type: ADD_NEW_TEXT_MESS})
 
-window.store = store;
-export default store
+    export const updateNewMessTextAC = (text) => ({type: UPDATE_NEW_TEXT_MESS, newText: text})
+
+    window.store = store;
+    export default store
