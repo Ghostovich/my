@@ -1,10 +1,5 @@
-let ADD_POST = 'ADD-POST'
-
-let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-
-let ADD_NEW_TEXT_MESS = 'ADD-NEW-TEXT-MESS'
-let UPDATE_NEW_TEXT_MESS = 'UPDATE-NEW-TEXT-MESS'
-
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
 let store = {
 
@@ -53,46 +48,15 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.ProfilePage.newPostText,
-                Like: 0
-            }
-            this._state.ProfilePage.Posts.push(newPost)
-            this._rerender(this._state);
-            this._state.ProfilePage.newPostText = ''
-        }
-        else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.ProfilePage.newPostText = action.newText
-            this._rerender(this._state)
-        }
-        else if (action.type === ADD_NEW_TEXT_MESS) {
-            let newMess = {
-                id: 4, mess: this._state.DialogsPage.newMessText,
-            }
-            this._state.DialogsPage.Mess.push(newMess)
-            this._rerender(this._state);
-            this._state.DialogsPage.newMessText = ''
 
+        this._state.ProfilePage = profileReducer(this._state.ProfilePage, action)
+        this._state.DialogsPage = dialogsReducer(this._state.DialogsPage, action)
 
-        }
-        else if (action.type === UPDATE_NEW_TEXT_MESS) {
-            this._state.DialogsPage.newMessText = action.newText
-            this._rerender(this._state);
-
-        }
+        this._rerender(this._state)
     }
 
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-
-export const updateNewPostTextAC = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-
-export const addMessTextAC = () => ({type: ADD_NEW_TEXT_MESS})
-
-export const updateNewMessTextAC = (text) => ({type: UPDATE_NEW_TEXT_MESS, newText: text})
 
 window.store = store;
 export default store
