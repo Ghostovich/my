@@ -1,8 +1,22 @@
 let ADD_NEW_TEXT_MESS = 'ADD-NEW-TEXT-MESS'
 let UPDATE_NEW_TEXT_MESS = 'UPDATE-NEW-TEXT-MESS'
 
+let initialState = {
+        DItem: [
+            {id: 1, name: "Phil"},
+            {id: 2, name: "Anton"},
+            {id: 3, name: "Petya"},
+            {id: 4, name: "Vasya"}
+        ],
+        Mess: [
+            {id: 1, mess: "Hi"},
+            {id: 2, mess: "Men"},
+            {id: 3, mess: "What`s up"},
+        ],
+        newMessText: ''
+    };
 
-let dialogsReducer = (state, action) => {
+let dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_NEW_TEXT_MESS:
             let newMess = {
